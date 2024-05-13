@@ -1,4 +1,4 @@
-Distance,Pressure,HRV,Sugar level,SpO2,Accelerometer,Decision 
+Distance,Pressure,HRV,Sugar_level,SpO2,Accelerometer,Decision 
 25.54,1,101.396,61.08,87.77,1,1
 2.595,2,110.19,20.207,65.19,1,2
 68.067,0,87.412,79.345,99.345,0,0
