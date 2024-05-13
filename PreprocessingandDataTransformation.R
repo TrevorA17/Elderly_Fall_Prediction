@@ -28,3 +28,17 @@ print(names(missing_values[missing_values > 0]))
 # Display total number of missing values
 print("Total Number of Missing Values:")
 print(sum(missing_values))
+
+# Apply logarithmic transformation to Sugar_level variable
+elderly_fall_data$Sugar_level_log <- log(elderly_fall_data$Sugar_level)
+
+# Plot the histogram of the original and transformed Sugar_level variable
+ggplot(elderly_fall_data, aes(x = Sugar_level)) +
+  geom_histogram(binwidth = 5, fill = "salmon", color = "black") +
+  labs(title = "Histogram of Original Sugar Level", x = "Sugar Level", y = "Frequency")
+
+ggplot(elderly_fall_data, aes(x = Sugar_level_log)) +
+  geom_histogram(binwidth = 0.1, fill = "skyblue", color = "black") +
+  labs(title = "Histogram of Transformed Sugar Level (Log)", x = "Log(Sugar Level)", y = "Frequency")
+
+
