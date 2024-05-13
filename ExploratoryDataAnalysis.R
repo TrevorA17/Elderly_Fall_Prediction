@@ -86,3 +86,4 @@ cat("Measures of Central Tendency for SpO2 levels:\n")
 cat("Mean:", spo2_mean, "\n")
 cat("Median:", spo2_median, "\n")
 cat("Mode:", spo2_mode, "\n")
+
