@@ -59,3 +59,24 @@ confidence_interval <- quantile(bootstrap_statistics, c(0.025, 0.975))
 
 # Print the confidence interval
 print(confidence_interval)
+
+# Train a Random Forest Regression model
+rf_model <- train(Decision ~ ., data = elderly_fall_data, method = "rf", trControl = train_control)
+
+# Print the trained Random Forest model
+print(rf_model)
+
+# Load the required library for modeling
+library(caret)
+
+# Set seed for reproducibility
+set.seed(123)
+
+# Define the training control
+train_control <- trainControl(method = "cv", number = 10)
+
+# Train a Gradient Boosting Regression model
+gbm_model <- train(Decision ~ ., data = elderly_fall_data, method = "gbm", trControl = train_control)
+
+# Print the trained Gradient Boosting model
+print(gbm_model)
