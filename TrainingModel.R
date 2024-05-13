@@ -80,3 +80,18 @@ gbm_model <- train(Decision ~ ., data = elderly_fall_data, method = "gbm", trCon
 
 # Print the trained Gradient Boosting model
 print(gbm_model)
+
+# Load the required library for modeling
+library(caret)
+
+# Set seed for reproducibility
+set.seed(123)
+
+# Define the training control
+train_control <- trainControl(method = "cv", number = 10)
+
+# Train a Support Vector Regression (SVR) model
+svr_model <- train(Decision ~ ., data = elderly_fall_data, method = "svmRadial", trControl = train_control)
+
+# Print the trained SVR model
+print(svr_model)
