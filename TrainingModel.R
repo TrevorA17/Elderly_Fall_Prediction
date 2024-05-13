@@ -37,3 +37,25 @@ print("Dimensions of the training set:")
 print(dim(training_data))
 print("Dimensions of the testing set:")
 print(dim(testing_data))
+
+# Define the number of bootstrap samples
+num_bootstraps <- 1000
+
+# Create an empty vector to store bootstrap statistics
+bootstrap_statistics <- numeric(num_bootstraps)
+
+# Perform bootstrapping
+for (i in 1:num_bootstraps) {
+  # Resample the dataset with replacement
+  bootstrap_sample <- elderly_fall_data[sample(nrow(elderly_fall_data), replace = TRUE), ]
+  
+  # Calculate the statistic of interest (e.g., mean, median, etc.)
+  # For example, let's calculate the mean of the Distance variable
+  bootstrap_statistics[i] <- mean(bootstrap_sample$Distance)
+}
+
+# Compute the confidence interval
+confidence_interval <- quantile(bootstrap_statistics, c(0.025, 0.975))
+
+# Print the confidence interval
+print(confidence_interval)
