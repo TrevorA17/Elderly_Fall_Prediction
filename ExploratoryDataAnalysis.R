@@ -136,4 +136,25 @@ cat("Variance:", spo2_variance, "\n")
 cat("Standard Deviation:", spo2_sd, "\n")
 cat("Quantiles (25th, 50th, 75th):", spo2_quantiles, "\n")
 
+# Calculate correlation coefficients for numerical variables
+correlation_matrix <- cor(elderly_fall_data[c("Distance", "HRV", "Sugar_levels", "SpO2_levels")])
+
+# Display correlation matrix
+cat("Correlation Matrix for Numerical Variables:\n")
+print(correlation_matrix)
+
+# Calculate contingency table for Pressure and Decision
+pressure_decision_table <- table(elderly_fall_data$Pressure, elderly_fall_data$Decision)
+
+# Display contingency table
+cat("\nContingency Table for Pressure and Decision:\n")
+print(pressure_decision_table)
+
+# Calculate contingency table for Accelerometer and Decision
+accelerometer_decision_table <- table(elderly_fall_data$Accelerometer, elderly_fall_data$Decision)
+
+# Display contingency table
+cat("\nContingency Table for Accelerometer and Decision:\n")
+print(accelerometer_decision_table)
+
 
