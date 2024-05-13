@@ -95,3 +95,26 @@ svr_model <- train(Decision ~ ., data = elderly_fall_data, method = "svmRadial",
 
 # Print the trained SVR model
 print(svr_model)
+
+# Load the required library for modeling
+library(caret)
+
+# Set seed for reproducibility
+set.seed(123)
+
+# Define the training control
+train_control <- trainControl(method = "cv", number = 10)
+
+# Define the models
+models <- list(
+  SVM = train(Decision ~ ., data = elderly_fall_data, method = "svmRadial", trControl = train_control),
+  RF = train(Decision ~ ., data = elderly_fall_data, method = "rf", trControl = train_control),
+  GBM = train(Decision ~ ., data = elderly_fall_data, method = "gbm", trControl = train_control)
+)
+
+# Compare model performance using resamples
+resamples_list <- resamples(models)
+
+# Summarize and compare the models
+summary_resamples <- summary(resamples_list)
+print(summary_resamples)
