@@ -87,3 +87,53 @@ cat("Mean:", spo2_mean, "\n")
 cat("Median:", spo2_median, "\n")
 cat("Mode:", spo2_mode, "\n")
 
+# Calculate Measures of Distribution for Distance
+distance_range <- range(elderly_fall_data$Distance)
+distance_variance <- var(elderly_fall_data$Distance)
+distance_sd <- sd(elderly_fall_data$Distance)
+distance_quantiles <- quantile(elderly_fall_data$Distance, probs = c(0.25, 0.5, 0.75))
+
+# Calculate Measures of Distribution for HRV
+hrv_range <- range(elderly_fall_data$HRV)
+hrv_variance <- var(elderly_fall_data$HRV)
+hrv_sd <- sd(elderly_fall_data$HRV)
+hrv_quantiles <- quantile(elderly_fall_data$HRV, probs = c(0.25, 0.5, 0.75))
+
+# Calculate Measures of Distribution for Sugar Levels
+sugar_range <- range(elderly_fall_data$Sugar_levels)
+sugar_variance <- var(elderly_fall_data$Sugar_levels)
+sugar_sd <- sd(elderly_fall_data$Sugar_levels)
+sugar_quantiles <- quantile(elderly_fall_data$Sugar_levels, probs = c(0.25, 0.5, 0.75))
+
+# Calculate Measures of Distribution for SpO2 levels
+spo2_range <- range(elderly_fall_data$SpO2_levels)
+spo2_variance <- var(elderly_fall_data$SpO2_levels)
+spo2_sd <- sd(elderly_fall_data$SpO2_levels)
+spo2_quantiles <- quantile(elderly_fall_data$SpO2_levels, probs = c(0.25, 0.5, 0.75))
+
+# Display the Measures of Distribution
+cat("Measures of Distribution for Distance:\n")
+cat("Range:", distance_range, "\n")
+cat("Variance:", distance_variance, "\n")
+cat("Standard Deviation:", distance_sd, "\n")
+cat("Quantiles (25th, 50th, 75th):", distance_quantiles, "\n\n")
+
+cat("Measures of Distribution for HRV:\n")
+cat("Range:", hrv_range, "\n")
+cat("Variance:", hrv_variance, "\n")
+cat("Standard Deviation:", hrv_sd, "\n")
+cat("Quantiles (25th, 50th, 75th):", hrv_quantiles, "\n\n")
+
+cat("Measures of Distribution for Sugar Levels:\n")
+cat("Range:", sugar_range, "\n")
+cat("Variance:", sugar_variance, "\n")
+cat("Standard Deviation:", sugar_sd, "\n")
+cat("Quantiles (25th, 50th, 75th):", sugar_quantiles, "\n\n")
+
+cat("Measures of Distribution for SpO2 levels:\n")
+cat("Range:", spo2_range, "\n")
+cat("Variance:", spo2_variance, "\n")
+cat("Standard Deviation:", spo2_sd, "\n")
+cat("Quantiles (25th, 50th, 75th):", spo2_quantiles, "\n")
+
+
