@@ -137,7 +137,7 @@ cat("Standard Deviation:", spo2_sd, "\n")
 cat("Quantiles (25th, 50th, 75th):", spo2_quantiles, "\n")
 
 # Calculate correlation coefficients for numerical variables
-correlation_matrix <- cor(elderly_fall_data[c("Distance", "HRV", "Sugar_levels", "SpO2_levels")])
+correlation_matrix <- cor(elderly_fall_data[c("Distance", "HRV", "Sugar_level", "SpO2")])
 
 # Display correlation matrix
 cat("Correlation Matrix for Numerical Variables:\n")
@@ -157,4 +157,38 @@ accelerometer_decision_table <- table(elderly_fall_data$Accelerometer, elderly_f
 cat("\nContingency Table for Accelerometer and Decision:\n")
 print(accelerometer_decision_table)
 
+# Load the required library for ANOVA
+library(stats)
+
+# Perform ANOVA for Distance across different levels of Pressure
+anova_result <- aov(Distance ~ Pressure, data = elderly_fall_data)
+
+# Summary of ANOVA results
+summary(anova_result)
+
+# Load the required library for plotting
+library(ggplot2)
+
+# Create histograms for numerical variables
+distance_plot <- ggplot(elderly_fall_data, aes(x = Distance)) +
+  geom_histogram(binwidth = 5, fill = "skyblue", color = "black") +
+  labs(title = "Histogram of Distance", x = "Distance", y = "Frequency")
+
+hrv_plot <- ggplot(elderly_fall_data, aes(x = HRV)) +
+  geom_histogram(binwidth = 5, fill = "lightgreen", color = "black") +
+  labs(title = "Histogram of HRV", x = "HRV", y = "Frequency")
+
+sugar_level_plot <- ggplot(elderly_fall_data, aes(x = Sugar_level)) +
+  geom_histogram(binwidth = 5, fill = "salmon", color = "black") +
+  labs(title = "Histogram of Sugar Level", x = "Sugar Level", y = "Frequency")
+
+spo2_plot <- ggplot(elderly_fall_data, aes(x = SpO2)) +
+  geom_histogram(binwidth = 5, fill = "lightyellow", color = "black") +
+  labs(title = "Histogram of SpO2", x = "SpO2", y = "Frequency")
+
+# Load the required library for arranging plots
+library(gridExtra)
+
+# Combine plots into a single display
+grid.arrange(distance_plot, hrv_plot, sugar_level_plot, spo2_plot, ncol = 2)
 
