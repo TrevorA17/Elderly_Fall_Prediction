@@ -192,3 +192,26 @@ library(gridExtra)
 # Combine plots into a single display
 grid.arrange(distance_plot, hrv_plot, sugar_level_plot, spo2_plot, ncol = 2)
 
+# Create box plot for Distance across different Pressure levels
+distance_pressure_plot <- ggplot(elderly_fall_data, aes(x = Pressure, y = Distance, fill = Pressure)) +
+  geom_boxplot() +
+  labs(title = "Box Plot of Distance by Pressure Levels", x = "Pressure", y = "Distance")
+
+# Create box plot for HRV across different Pressure levels
+hrv_pressure_plot <- ggplot(elderly_fall_data, aes(x = Pressure, y = HRV, fill = Pressure)) +
+  geom_boxplot() +
+  labs(title = "Box Plot of HRV by Pressure Levels", x = "Pressure", y = "HRV")
+
+# Create violin plot for Sugar Level across different Pressure levels
+sugar_pressure_plot <- ggplot(elderly_fall_data, aes(x = Pressure, y = Sugar_level, fill = Pressure)) +
+  geom_violin() +
+  labs(title = "Violin Plot of Sugar Level by Pressure Levels", x = "Pressure", y = "Sugar Level")
+
+# Create violin plot for SpO2 across different Pressure levels
+spo2_pressure_plot <- ggplot(elderly_fall_data, aes(x = Pressure, y = SpO2, fill = Pressure)) +
+  geom_violin() +
+  labs(title = "Violin Plot of SpO2 by Pressure Levels", x = "Pressure", y = "SpO2")
+
+# Combine plots into a single display
+grid.arrange(distance_pressure_plot, hrv_pressure_plot, sugar_pressure_plot, spo2_pressure_plot, ncol = 2)
+
