@@ -60,6 +60,14 @@ confidence_interval <- quantile(bootstrap_statistics, c(0.025, 0.975))
 # Print the confidence interval
 print(confidence_interval)
 
+
+# Load required libraries
+library(caret)
+library(randomForest)
+
+# Define train control using cross-validation
+train_control <- trainControl(method = "cv", number = 10)  # 10-fold cross-validation
+
 # Train a Random Forest Regression model
 rf_model <- train(Decision ~ ., data = elderly_fall_data, method = "rf", trControl = train_control)
 

@@ -56,16 +56,6 @@ hrv_mean <- mean(elderly_fall_data$HRV)
 hrv_median <- median(elderly_fall_data$HRV)
 hrv_mode <- as.numeric(names(sort(table(elderly_fall_data$HRV), decreasing = TRUE)[1]))
 
-# Calculate measures of central tendency for Sugar Levels
-sugar_mean <- mean(elderly_fall_data$Sugar_levels)
-sugar_median <- median(elderly_fall_data$Sugar_levels)
-sugar_mode <- as.numeric(names(sort(table(elderly_fall_data$Sugar_levels), decreasing = TRUE)[1]))
-
-# Calculate measures of central tendency for SpO2 levels
-spo2_mean <- mean(elderly_fall_data$SpO2_levels)
-spo2_median <- median(elderly_fall_data$SpO2_levels)
-spo2_mode <- as.numeric(names(sort(table(elderly_fall_data$SpO2_levels), decreasing = TRUE)[1]))
-
 # Display the measures of central tendency
 cat("Measures of Central Tendency for Distance:\n")
 cat("Mean:", distance_mean, "\n")
@@ -76,16 +66,6 @@ cat("Measures of Central Tendency for HRV:\n")
 cat("Mean:", hrv_mean, "\n")
 cat("Median:", hrv_median, "\n")
 cat("Mode:", hrv_mode, "\n\n")
-
-cat("Measures of Central Tendency for Sugar Levels:\n")
-cat("Mean:", sugar_mean, "\n")
-cat("Median:", sugar_median, "\n")
-cat("Mode:", sugar_mode, "\n\n")
-
-cat("Measures of Central Tendency for SpO2 levels:\n")
-cat("Mean:", spo2_mean, "\n")
-cat("Median:", spo2_median, "\n")
-cat("Mode:", spo2_mode, "\n")
 
 # Calculate Measures of Distribution for Distance
 distance_range <- range(elderly_fall_data$Distance)
@@ -99,18 +79,6 @@ hrv_variance <- var(elderly_fall_data$HRV)
 hrv_sd <- sd(elderly_fall_data$HRV)
 hrv_quantiles <- quantile(elderly_fall_data$HRV, probs = c(0.25, 0.5, 0.75))
 
-# Calculate Measures of Distribution for Sugar Levels
-sugar_range <- range(elderly_fall_data$Sugar_levels)
-sugar_variance <- var(elderly_fall_data$Sugar_levels)
-sugar_sd <- sd(elderly_fall_data$Sugar_levels)
-sugar_quantiles <- quantile(elderly_fall_data$Sugar_levels, probs = c(0.25, 0.5, 0.75))
-
-# Calculate Measures of Distribution for SpO2 levels
-spo2_range <- range(elderly_fall_data$SpO2_levels)
-spo2_variance <- var(elderly_fall_data$SpO2_levels)
-spo2_sd <- sd(elderly_fall_data$SpO2_levels)
-spo2_quantiles <- quantile(elderly_fall_data$SpO2_levels, probs = c(0.25, 0.5, 0.75))
-
 # Display the Measures of Distribution
 cat("Measures of Distribution for Distance:\n")
 cat("Range:", distance_range, "\n")
@@ -123,18 +91,6 @@ cat("Range:", hrv_range, "\n")
 cat("Variance:", hrv_variance, "\n")
 cat("Standard Deviation:", hrv_sd, "\n")
 cat("Quantiles (25th, 50th, 75th):", hrv_quantiles, "\n\n")
-
-cat("Measures of Distribution for Sugar Levels:\n")
-cat("Range:", sugar_range, "\n")
-cat("Variance:", sugar_variance, "\n")
-cat("Standard Deviation:", sugar_sd, "\n")
-cat("Quantiles (25th, 50th, 75th):", sugar_quantiles, "\n\n")
-
-cat("Measures of Distribution for SpO2 levels:\n")
-cat("Range:", spo2_range, "\n")
-cat("Variance:", spo2_variance, "\n")
-cat("Standard Deviation:", spo2_sd, "\n")
-cat("Quantiles (25th, 50th, 75th):", spo2_quantiles, "\n")
 
 # Calculate correlation coefficients for numerical variables
 correlation_matrix <- cor(elderly_fall_data[c("Distance", "HRV", "Sugar_level", "SpO2")])
